@@ -3,7 +3,7 @@
 os.loadAPI("json")
 
 -- helper cause im bad at lua
-local function len(tab) do
+function len(tab)
 	n = 0
 	for k,v in pairs(tab) do
 		n = n+1
@@ -20,7 +20,6 @@ if not fs.exists("./prg") then
 	fs.makeDir("./prg")
 end
 
-
 for i = 1,len(programs) do
 	url = base .. programs[i].name
 	c = http.get(url).readAll()
@@ -28,3 +27,4 @@ for i = 1,len(programs) do
 	h.write(c)
 	h.close()
 end
+
